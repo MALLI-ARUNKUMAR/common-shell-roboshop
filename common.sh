@@ -106,5 +106,5 @@ script_finished() {
     echo "Script finished execution at: $(date '+%Y-%m-%d %H:%M:%S')"
 }
 
-total_time=(($script_finished - $script_started))
+total_time=(($(script_finished) - $(script_started)))
 echo "total time exeution of the script is $total_time"
