@@ -100,7 +100,8 @@ systemctl restart $app_name
 VALIDATE $? "restating the $app_name" 
 }
 
-script_finished=$(date +%s)
+sscript_finished=$(date +%s)
 
-total_time=(($script_finished - $script_started))
-echo "total time exeution of the script is $total_time"
+total_time=$((script_finished - script_started))
+
+echo "Total execution time of the script is: $total_time seconds"
