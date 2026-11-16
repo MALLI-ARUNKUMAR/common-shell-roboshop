@@ -5,7 +5,7 @@ source ./common.sh
 
 root_check
 
-script_started
+
 
 dnf module disable redis -y &>>$LOG_FILE
 VALIDATE $? "disbale the default version redis version"
@@ -22,4 +22,4 @@ VALIDATE $? "enabling the remote connection"
 systemctl restart redis  &>>$LOG_FILE
 VALIDATE $? "restart the redis"
 
-total_time
+print_total_time_execution_of_script

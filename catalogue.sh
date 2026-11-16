@@ -2,7 +2,6 @@
 app_name=catalogue
 
 source ./common.sh
-script_started
 root_check 
 app_setup
 nodejs_setup
@@ -23,4 +22,4 @@ fi
 
 restart_setup
 
-total_time
+print_total_time_execution_of_script
