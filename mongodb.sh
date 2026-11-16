@@ -1,7 +1,7 @@
 #!/bin/bash
 
 source ./common.sh
- --------------------script started  exection $(time_stamp) time ---------
+ --------------------script started  exection (time_stamp) time ---------
 root_check
 
 
