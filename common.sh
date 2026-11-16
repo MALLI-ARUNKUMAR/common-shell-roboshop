@@ -24,7 +24,7 @@ script_started=$(date +%s)
 
 
 time_stamp() {
-    date "+%Y-%m-%d_%H-%M-%S"
+    date '+%Y-%m-%d_%H-%M-%S'
 }
 
 mkdir -p $LOGS_FOLDER
