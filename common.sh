@@ -105,5 +105,5 @@ print_total_time_execution_of_script() {
 
     total_time=$((script_finished - script_started))
 
-    echo "$(date '+%Y-%m-%d_%H-%M-%S') | Script execution time: $total_time seconds"
+    echo "$(time_stamp) | Script execution time: $total_time seconds"
 }
