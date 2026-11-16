@@ -102,6 +102,9 @@ VALIDATE $? "restating the $app_name"
 
 script_finished=$(date +%s)
 
-total_time=$((script_finished - script_started))
+print_total_time_execution_of_script (){
+    script_finished=$(date +%s)
+    total_time=$((script_finished - script_started))
+    echo "Total execution time of the script is: $total_time seconds"
 
-echo "Total execution time of the script is: $total_time seconds"
+}
