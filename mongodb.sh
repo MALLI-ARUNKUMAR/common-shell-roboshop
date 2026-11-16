@@ -1,7 +1,7 @@
 #!/bin/bash
 
 source ./common.sh
-script_started
+
 
 root_check
 
