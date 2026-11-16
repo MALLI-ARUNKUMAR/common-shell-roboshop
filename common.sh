@@ -22,7 +22,7 @@ script_started() {
 }
 
 script_finished() {
-    echo "Script finished execution at: $(date '%S')"
+    echo "Script finished execution at: $(date '%S seconds')"
 }
 
 time_stamp() {
