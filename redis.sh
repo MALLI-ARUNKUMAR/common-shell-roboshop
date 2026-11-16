@@ -2,8 +2,10 @@
 app_name=redis
 
 source ./common.sh
+
 root_check
-script_started()
+
+script_started
 
 dnf module disable redis -y &>>$LOG_FILE
 VALIDATE $? "disbale the default version redis version"
