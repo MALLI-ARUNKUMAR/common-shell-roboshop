@@ -2,6 +2,8 @@
 app_name=redis
 
 source ./common.sh
+root_check
+script_started()
 
 dnf module disable redis -y &>>$LOG_FILE
 VALIDATE $? "disbale the default version redis version"
@@ -17,3 +19,5 @@ VALIDATE $? "enabling the remote connection"
 
 systemctl restart redis  &>>$LOG_FILE
 VALIDATE $? "restart the redis"
+
+script_finished
