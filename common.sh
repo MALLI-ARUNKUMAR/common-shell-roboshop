@@ -19,9 +19,7 @@ if [ $USER_ID -ne 0 ] ; then
 fi
 }
 
-script_started() {
-    echo "Script started execution at: $(date '+%Y-%m-%d %H:%M:%S')"
-}
+script_started=$(date +%s)
 
 
 
@@ -102,9 +100,7 @@ systemctl restart $app_name
 VALIDATE $? "restating the $app_name" 
 }
 
-script_finished() {
-    echo "Script finished execution at: $(date '+%Y-%m-%d %H:%M:%S')"
-}
+script_finished=$(date +%s)
 
 total_time=(($(script_finished) - $(script_started)))
 echo "total time exeution of the script is $total_time"
