@@ -24,4 +24,4 @@ VALIDATE $? "updating the bind_ip in mongod.conf"
 systemctl restart mongod >>$LOG_FILE
 VALIDATE $? "restarting MongoDB"
 
-script_finished
+total_time

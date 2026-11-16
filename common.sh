@@ -23,9 +23,7 @@ script_started() {
     echo "Script started execution at: $(date '+%Y-%m-%d %H:%M:%S')"
 }
 
-script_finished() {
-    echo "Script finished execution at: $(date '+%H:%M:%S ')"
-}
+
 
 time_stamp() {
     date "+%Y-%m-%d_%H-%M-%S"
@@ -103,3 +101,10 @@ restart_setup (){
 systemctl restart $app_name
 VALIDATE $? "restating the $app_name" 
 }
+
+script_finished() {
+    echo "Script finished execution at: $(date '+%Y-%m-%d %H:%M:%S')"
+}
+
+total_time=(($script_finished - $script_started))
+echo "total time exeution of the script is $total_time"

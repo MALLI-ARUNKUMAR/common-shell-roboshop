@@ -23,4 +23,4 @@ fi
 
 restart_setup
 
-script_finished
+total_time

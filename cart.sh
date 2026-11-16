@@ -8,4 +8,4 @@ app_setup
 nodejs_setup
 systemd_setup
 restart_setup
-script_finished
+total_time

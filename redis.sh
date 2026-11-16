@@ -22,4 +22,4 @@ VALIDATE $? "enabling the remote connection"
 systemctl restart redis  &>>$LOG_FILE
 VALIDATE $? "restart the redis"
 
-script_finished
+total_time
