@@ -1,7 +1,8 @@
 #!/bin/bash
 
 source ./common.sh
- --------------------script started  exection time_stamp time ---------
+ script_started
+
 root_check
 
 
@@ -23,4 +24,4 @@ VALIDATE $? "updating the bind_ip in mongod.conf"
 systemctl restart mongod >>$LOG_FILE
 VALIDATE $? "restarting MongoDB"
 
---------------------script completed  exection $(time_stamp) time ---------
+script_finished
