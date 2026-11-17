@@ -5,6 +5,7 @@ LOGS_FOLDER="/var/log/shell-roboshop"
 LOG_FILE="$LOGS_FOLDER/$0.log"
 SCRIPT_DIR=$PWD
 MONGODB_HOST="mongodb.daws880s.online"
+MYSQL_HOST=mysql.daws880s.online
 
 R="\e[31m"
 G="\e[32m"
@@ -51,7 +52,43 @@ npm install &>>$LOG_FILE
 VALIDATE $? "installing nodejs dependencies"
 
 }
+java_setup () {
+dnf install maven -y &>>$LOG_FILE
+VALIDATE $? "installing the maven"  
+mvn clean package &>>$LOG_FILE
+VALIDATE $? "installing the packages"
 
+mv target/shipping-1.0.jar shipping.jar &>>$LOG_FILE
+VALIDATE $? "renaming the file name"
+}
+python_setup () {
+dnf install python3 gcc python3-devel -y &>>$LOG_FILE
+VALIDATE $? "installing the python version"  
+pip3 install -r requirements.txt
+VALIDATE $? "Creating virtual environment"
+}
+nginx_setup () {
+dnf module disable nginx -y 
+dnf module enable nginx:1.24 -y 
+dnf install nginx -y 
+VALIDATE $? "Installing Nginx"
+
+systemctl enable nginx  
+
+systemctl start nginx 
+VALIDATE $? "Enabled and started nginx"
+
+rm -rf /usr/share/nginx/html/* 
+VALIDATE $? "Remove default content"
+}
+frontend_appsetup () {
+curl -o /tmp/$app_name.zip https://roboshop-artifacts.s3.amazonaws.com/$app_name-v3.zip &>>$LOGS_FILE
+cd /usr/share/nginx/html 
+unzip /tmp/$app_name.zip 
+VALIDATE $? "Downloaded and unzipped $app_name"
+
+rm -rf /etc/nginx/nginx.conf 
+}
 app_setup () {
 id roboshop &>>$LOG_FILE
 if [ $? -ne 0 ] ; then
