@@ -1,7 +1,7 @@
 #!/bin/bash
 app_name=rabbitmq
 source ./common.sh
-check_root
+root_check
 
 cp $SCRIPT_DIR/rabbitmq.repo /etc/yum.repos.d/rabbitmq.repo
 VALIDATE $? "coping the repo"
